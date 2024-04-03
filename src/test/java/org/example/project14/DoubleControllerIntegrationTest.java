@@ -19,14 +19,14 @@ public class DoubleControllerIntegrationTest {
     @Test
     public void testDoubleNumberEndpoint() throws Exception {
         int inputNumber = 5;
-        int expectedDouble = inputNumber * 2;
+
 
         mockMvc.perform(MockMvcRequestBuilders.get("/double")
                         .param("number", String.valueOf(inputNumber))
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$").value(expectedDouble));
+                .andExpect(jsonPath("$").value(10));
     }
 }
 
